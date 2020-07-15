@@ -14,7 +14,6 @@ function ListCountry({ result, search }) {
   const dispatch = useDispatch();
 
   function handleAddCountry(country) {
-    console.tron.warn(country);
     dispatch(CountryActions.addToCountryRequest(country));
   }
 

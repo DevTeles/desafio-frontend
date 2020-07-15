@@ -1,7 +1,3 @@
-<p align="center">
-   <img src="src/assets/MarvelLogo.png" width="200"/>
-</p>
-
 <h1>Resultado</h1>
 
 <p align="center">
@@ -20,7 +16,7 @@
 </p>
 
 Deploy:
-<a href="https://inspiring-pike-9d0e9c.netlify.app/">Site<a>
+<a href="pais.netlify.app">Site<a>
 
 # `Indice`
 
