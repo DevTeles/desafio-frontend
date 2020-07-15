@@ -16,7 +16,7 @@
 </p>
 
 Deploy:
-<a href="pais.netlify.app">Site<a>
+<a href="https://pais.netlify.app/">Site<a>
 
 # `Indice`
 
