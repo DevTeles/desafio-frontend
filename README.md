@@ -30,7 +30,7 @@ Deploy:
 
 ## Escopo
 
-Este é um simples exemplo de como consumir a API da Marvel, consultar personagens da marvel e suas series relacionadas.
+Este é um simples exemplo de como consumir a API https://github.com/lennertVanSever/graphcountries, para consultar os países atráves do graphql.
 
 ---
 
@@ -40,15 +40,13 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 - react: Por ser uma tecnologia que mais está crescendo e ganhado o mercado;
 
-- axios: Utilizado para consumir a api, pois é simples de se usar;
+- graphql;
 
 - styled-components: Para colocar css no layout, também muito simples de utilizar;
 
 - react-icons: Inclua ícones populares nos projetos do react facilmente com o react-icons;
 
 - dotenv: Para cada desenvolvedor usar as suas credenciais de acesso, ou endereços diferente que existem em cada máquina;
-
-- react-responsive-carousel: Para exibir uma coloções de series num formato bacana, fácil utilização dela também;
 
 - react-router-dom: Para criar as routas do projeto;
 
@@ -61,19 +59,19 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 ```bash
 
   # Clonar o repositório
-  $ git clone https://github.com/DevTeles/Marvel.git
+  $ git clone https://github.com/DevTeles/desafio-frontend.git
 
   # Entrar no diretório
-  $ cd Marvel
+  $ cd desafio-frontend
 
   # Instalar as dependências
-  $ yarn
-
-  # Criar arquivo ".env" na raiz do projeto e preencher as variavéis de ambiente, que são as credenciais para acessar API da Marvel
-  # Dúvida consultar link: (https://developer.marvel.com/docs)
+  $ yarn  
 
   # Iniciar o projeto  
   $ yarn start
+
+  # Rodar o test
+  $ yarn test
 
 ```
 
