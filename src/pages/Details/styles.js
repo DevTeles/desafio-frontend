@@ -7,22 +7,54 @@ export const Container = styled.div`
 
   img {
     max-width: 800px;
-    height: 500px;
+    height: 520px;
+    object-fit: cover;
   }
 
-  div {
+  form {
     display: flex;       
     flex-direction: column;
     margin-left: 30px;
-    margin-top: 100px;
+    
+    border: 3px solid #393939;
+    width: 100%;
 
-    strong {
-      font-size: 26px;
-      font-weight: bold;
-    }
+    h1 {
+      text-align: center;
+      background: #9999;
+      margin-bottom: 15px;
+    }    
 
     p { 
       font-size: 18px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      strong {
+        font-size: 26px;
+        font-weight: bold;
+      }
+    }
+
+    input {      
+      margin-right: 110px;
+      padding-left: 10px;
+      width: 500px;
+      border-radius: 16px;
+
+      &:focus {        
+        border: 4px solid orange;        
+      }
+    }
+
+    button {
+      background: green;
+      color: #FFF;
+      font-size: 22px;
+      font-weight: bold;
+      height: 100px;
+      margin-top: 120px;
     }
   }
 `;
