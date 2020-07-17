@@ -4,15 +4,10 @@
    <img src="src/assets/foto.png" />
 </p>
 <p align="center">
-   <img src="src/assets/foto1.png" />
-</p>
-<p align="center">
    <img src="src/assets/foto2.png" />
 </p>
-
-<h1>Bônus</h1>
 <p align="center">
-   <img src="src/assets/test.png" />
+   <img src="src/assets/foto1.png" />
 </p>
 
 Deploy:

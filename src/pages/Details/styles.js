@@ -18,6 +18,7 @@ export const Container = styled.div`
     
     border: 3px solid #393939;
     width: 100%;
+    height: 0 auto;
 
     h1 {
       text-align: center;
@@ -48,13 +49,27 @@ export const Container = styled.div`
       }
     }
 
+    div {
+      div {
+        display: flex;
+        flex-direction: column;
+        background: #9999;
+        margin-right: 170px;
+        width: 0 auto;
+
+        span {
+          font-size: 15px;
+        }
+      }
+    }
+
     button {
       background: green;
       color: #FFF;
       font-size: 22px;
       font-weight: bold;
       height: 100px;
-      margin-top: 120px;
+      margin-top: 0 auto;
     }
   }
 `;

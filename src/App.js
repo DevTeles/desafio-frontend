@@ -18,17 +18,17 @@ import apolloClient from './services/apollo';
 
 function App() {
   return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+    <PersistGate loading={null} persistor={persistor}>
+      <Provider store={store}>
         <ApolloProvider client={apolloClient}>
           <Router history={history}>
             <GlobalStyle />
             <Routes />
-            <ToastContainer autoClose={10000} />
+            <ToastContainer autoClose={3000} />
           </Router>
         </ApolloProvider>
-      </PersistGate>
-    </Provider>
+      </Provider>
+    </PersistGate>
   );
 }
 

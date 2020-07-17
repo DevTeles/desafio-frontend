@@ -20,7 +20,7 @@ function ListCountry({ result, search }) {
 
   useEffect(() => {
     if (search) {
-      console.log(JSON.stringify(countrys));
+      //console.log(JSON.stringify(countrys));
       setCountry(result.Country.filter(item =>
         (item.name.toLowerCase() === search.toLowerCase())
         || (item.nativeName.toLowerCase() === search.toLowerCase()))
@@ -32,7 +32,7 @@ function ListCountry({ result, search }) {
       setCountry(result.Country)
 
     }
-  }, [search, result.Country, countrys]);
+  }, [search, result.Country]);
 
   const renderCountry = () => (
     <Container>
@@ -78,12 +78,16 @@ const countryQuery = gql`
         emoji
       } 
       topLevelDomains {
-        name
+        name       
       }  
       distanceToOtherCountries(first: 5) {
         distanceInKm
-        countryName      
-      } 
+        countryName          
+      }   
+      location {
+        latitude
+        longitude
+      }    
     }   
   }
 `;
