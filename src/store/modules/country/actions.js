@@ -1,9 +1,9 @@
-export function addToCountry(id) {
-  return {
-    type: '@country/ADD_REQUEST',
-    id,
-  };
-}
+// export function addToCountry(id) {
+//   return {
+//     type: '@country/ADD_REQUEST',
+//     id,
+//   };
+// }
 
 export function addToCountryRequest(country) {
   return {
@@ -19,33 +19,31 @@ export function addToCountrySuccess(country) {
   };
 }
 
-export function removeFromCountry(id) {
+// export function removeFromCountry(id) {
+//   return {
+//     type: '@country/REMOVE',
+//     id,
+//   };
+// }
+
+// export function updateCountry(id, amount) {
+//   return {
+//     type: '@country/UPDATE_AMOUNT',
+//     id,
+//     amount,
+//   };
+// }
+
+export function updateCountryRequest(country) {
   return {
-    type: '@country/REMOVE',
-    id,
+    type: '@country/UPDATE_COUNTRY_REQUEST',
+    country
   };
 }
 
-export function updateAmount(id, amount) {
+export function updateCountrySuccess(country) {
   return {
-    type: '@country/UPDATE_AMOUNT',
-    id,
-    amount,
-  };
-}
-
-export function updateAmountRequest(id, amount) {
-  return {
-    type: '@country/UPDATE_AMOUNT_REQUEST',
-    id,
-    amount,
-  };
-}
-
-export function updateAmountSuccess(id, amount) {
-  return {
-    type: '@country/UPDATE_AMOUNT_SUCCESS',
-    id,
-    amount,
+    type: '@country/UPDATE_COUNTRY_SUCCESS',
+    country,
   };
 }

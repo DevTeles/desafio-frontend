@@ -1,23 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import * as CountryActions from '../../store/modules/country/actions';
 
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Container } from './styles';
 import { FaChevronLeft } from 'react-icons/fa';
 
-export default function Series({ match }) {
+export default function Details({ match }) {
   const dispatch = useDispatch();
-  const country = useSelector(state => state.country);
 
-  console.log(country);
+  let filterCountry = useSelector(state => state.country.filter(c => (
+    c._id === match.params.id ? c : null
+  )));
+
+  const [country, setCountry] = useState(filterCountry);
+
 
   const handleSave = (e) => {
     e.preventDefault();
 
-    const id = document.getElementById('id').value;
     const bandeira = document.getElementById('bandeira').value;
     const nome = document.getElementById('nome').value;
     const capital = document.getElementById('capital').value;
@@ -25,13 +27,16 @@ export default function Series({ match }) {
     const populacao = document.getElementById('populacao').value;
     const topleveldomain = document.getElementById('topleveldomain').value;
 
-    const data = {
-      bandeira, nome, capital, area, populacao, topleveldomain
-    }
+    filterCountry[0].flag.emoji = bandeira;
+    filterCountry[0].name = nome;
+    filterCountry[0].capital = capital;
+    filterCountry[0].area = area;
+    filterCountry[0].population = populacao;
+    filterCountry[0].topLevelDomains[0].name = topleveldomain;
 
-    console.log(data);
-
-    //dispatch(CountryActions.addToCountryRequest(id, data));
+    setCountry(filterCountry);
+    //console.tron.warn(country);
+    dispatch(CountryActions.updateCountryRequest(country));
   }
 
   return (
@@ -41,7 +46,7 @@ export default function Series({ match }) {
           <FaChevronLeft size={30} color="#7159c1" style={{ margin: '10px' }} />
         </Link>
       </div>
-      <h1 style={{ margin: 30 }}>Detalhes de {match.params.name}</h1>
+      <h1 style={{ margin: 30 }}>Detalhes de {country[0].name}</h1>
       <Container>
         {
           country.map(item => (
@@ -51,8 +56,7 @@ export default function Series({ match }) {
                 <h1>Dados</h1>
                 <p>
                   <strong>Bandeira:</strong>
-                  <input id="bandeira" type="text" defaultValue={item.flag.emoji} />
-                  <input id="id" type="text" hidden defaultValue={item._id} />
+                  <input id="bandeira" type="text" defaultValue={item.flag ? item.flag.emoji : null} />
                 </p>
                 <p>
                   <strong>Nome:</strong>

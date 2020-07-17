@@ -6,7 +6,7 @@ if (process.env.NODE_ENV === 'development') {
   const tron = Reactotron.configure()
     .use(reactotronRedux())
     .use(reactotronSaga())
-    .connect({ host: '192.168.0.104' });
+    .connect({ host: process.env.REACT_APP_IP_MAQUINA });
 
   tron.clear();
 

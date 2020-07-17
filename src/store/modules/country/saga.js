@@ -1,9 +1,9 @@
-import { call, select, put, all, takeLatest } from 'redux-saga/effects';
+import { select, put, all, takeLatest } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 
 //import history from '../../../services/history';
 
-import { addToCountrySuccess, updateAmountSuccess } from './actions';
+import { addToCountrySuccess, updateCountrySuccess } from './actions';
 
 //* como se fosse o asynx/await(yield), mais poderoso.
 function* addToCountry({ country }) {
@@ -11,22 +11,19 @@ function* addToCountry({ country }) {
     state.country.find(c => c._id === country._id)
   );
 
-  if (countryExists) {
-    yield put(updateAmountSuccess(country));
-  } else {
+  if (!countryExists) {
     yield put(addToCountrySuccess(country));
-
-    //history.push('/country');
   }
 }
 
-function* updateAmount({ id, amount }) {
-  if (amount <= 0) return;
+function* updateCountry({ country }) {
+  if (!country) return;
 
-  yield put(updateAmountSuccess(id, amount));
+  yield put(updateCountrySuccess(country));
+  toast.success('Alterado com sucesso.');
 }
 
 export default all([
   takeLatest('@country/ADD_REQUEST', addToCountry),
-  takeLatest('@country/UPDATE_AMOUNT_REQUEST', updateAmount),
+  takeLatest('@country/UPDATE_COUNTRY_REQUEST', updateCountry),
 ]);

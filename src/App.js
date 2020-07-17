@@ -5,12 +5,15 @@ import Routes from './routes';
 import GlobalStyle from './styles/global'
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import './config/ReactotronConfig';
 
 import { ToastContainer } from 'react-toastify';
-import './config/ReactotronConfig';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { store, persistor } from './store';
 
-import { ApolloProvider } from 'react-apollo';
+import { ApolloProvider } from '@apollo/react-hooks';
+
 import apolloClient from './services/apollo';
 
 function App() {
@@ -21,7 +24,7 @@ function App() {
           <Router history={history}>
             <GlobalStyle />
             <Routes />
-            <ToastContainer autoClose={3000} />
+            <ToastContainer autoClose={10000} />
           </Router>
         </ApolloProvider>
       </PersistGate>

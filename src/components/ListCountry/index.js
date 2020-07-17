@@ -11,6 +11,7 @@ import { Container } from './styles';
 
 function ListCountry({ result, search }) {
   const [countrys, setCountry] = useState([]);
+  //const exist = useSelector(state => state.country);
   const dispatch = useDispatch();
 
   function handleAddCountry(country) {
@@ -19,22 +20,26 @@ function ListCountry({ result, search }) {
 
   useEffect(() => {
     if (search) {
+      console.log(JSON.stringify(countrys));
       setCountry(result.Country.filter(item =>
         (item.name.toLowerCase() === search.toLowerCase())
         || (item.nativeName.toLowerCase() === search.toLowerCase()))
       );
     }
     else if (result.Country) {
+
+      //if (countrys.length === 0)
       setCountry(result.Country)
+
     }
-  }, [search, result.Country]);
+  }, [search, result.Country, countrys]);
 
   const renderCountry = () => (
     <Container>
       {
         countrys.map(country => (
           <li key={country._id}>
-            <Link onClick={() => handleAddCountry(country)} to={`/details/${country.name}`} style={{ textDecoration: 'none', padding: 0, margin: 0 }} >
+            <Link onClick={() => handleAddCountry(country)} to={`/details/${country._id}`} style={{ textDecoration: 'none', padding: 0, margin: 0 }} >
               <img src={country.flag.svgFile} alt={country.name} />
               <div>
                 <p>{country.name}</p>

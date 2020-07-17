@@ -23,6 +23,7 @@ export default function Home() {
         <Header>
           <div>
             <Input
+              data-testid="search"
               style={{ fontSize: 26 }}
               onKeyUp={(e) => handleSearch(e)}
               placeholder="Search"
